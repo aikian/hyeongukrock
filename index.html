@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>형욱이와 가위바위보</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">형</span>
+          <div>
+            <h1>형욱이와 가위바위보</h1>
+            <p id="roundLabel">오늘의 첫 승부</p>
+          </div>
+        </div>
+        <div class="toolbar" aria-label="게임 도구">
+          <button class="icon-button" id="soundButton" type="button" title="소리 켜기/끄기" aria-label="소리 켜기/끄기">
+            <span aria-hidden="true">🔊</span>
+          </button>
+          <button class="icon-button" id="resetButton" type="button" title="점수 초기화" aria-label="점수 초기화">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="score-strip" aria-label="점수판">
+        <div class="score-cell me">
+          <span>나</span>
+          <strong id="meScore">0</strong>
+        </div>
+        <div class="score-cell hyungwook">
+          <span>형욱이</span>
+          <strong id="hyungwookScore">0</strong>
+        </div>
+        <div class="score-cell draw">
+          <span>무승부</span>
+          <strong id="drawScore">0</strong>
+        </div>
+        <div class="score-cell streak">
+          <span>흐름</span>
+          <strong id="streakLabel">팽팽</strong>
+        </div>
+      </section>
+
+      <section class="arena" id="arena" aria-live="polite">
+        <article class="fighter-panel player-panel">
+          <div class="panel-heading">
+            <span class="name-tag">나</span>
+            <span class="mini-stat" id="playerMiniStat">기세 확인 중</span>
+          </div>
+          <div class="hand-stage" id="playerHand" aria-label="내 선택">?</div>
+        </article>
+
+        <div class="result-panel">
+          <span class="versus">VS</span>
+          <h2 id="resultHeadline">첫 판 가자</h2>
+          <p id="resultSubline">형욱이가 이미 표정 관리 중이다.</p>
+        </div>
+
+        <article class="fighter-panel hyungwook-panel">
+          <div class="panel-heading">
+            <span class="name-tag">형욱이</span>
+            <span class="mini-stat" id="hyungwookMiniStat">자신감 충전</span>
+          </div>
+          <div class="hyungwook-wrap">
+            <div class="hyungwook-avatar" id="hyungwookAvatar" aria-hidden="true">
+              <span class="hair hair-left"></span>
+              <span class="hair hair-right"></span>
+              <span class="face">
+                <span class="brow brow-left"></span>
+                <span class="brow brow-right"></span>
+                <span class="eye eye-left"></span>
+                <span class="eye eye-right"></span>
+                <span class="nose"></span>
+                <span class="mouth"></span>
+              </span>
+              <span class="neck"></span>
+              <span class="shirt"></span>
+            </div>
+            <div class="speech-bubble" id="speechBubble">오늘은 내가 이긴다.</div>
+          </div>
+          <div class="hand-stage hyungwook-hand" id="hyungwookHand" aria-label="형욱이 선택">?</div>
+        </article>
+      </section>
+
+      <section class="choice-dock" aria-label="선택">
+        <button class="choice-button scissors" type="button" data-choice="scissors" aria-label="가위">
+          <span class="choice-icon" aria-hidden="true">✌</span>
+          <span>가위</span>
+        </button>
+        <button class="choice-button rock" type="button" data-choice="rock" aria-label="바위">
+          <span class="choice-icon" aria-hidden="true">✊</span>
+          <span>바위</span>
+        </button>
+        <button class="choice-button paper" type="button" data-choice="paper" aria-label="보">
+          <span class="choice-icon" aria-hidden="true">✋</span>
+          <span>보</span>
+        </button>
+      </section>
+
+      <section class="history-panel" aria-label="최근 승부">
+        <div class="section-heading">
+          <h2>최근 승부</h2>
+          <span id="winRate">승률 0%</span>
+        </div>
+        <ol class="history-list" id="historyList"></ol>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
